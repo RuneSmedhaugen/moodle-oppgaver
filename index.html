@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.divRepeterKode{
+    border: solid rgb(238, 255, 0);
+    background-color: aqua;
+}
+
+.divMedVarogPara{
+    border: solid rgb(255, 0, 200);
+    background-color: blueviolet;
+}
+
+    </style>
+</head>
+<body>
+    <div class="divRepeterKode" id="divRepeterKode">Denne Div'en endrer bakgrunnsfarge uten hjelp av variabler og parametre (repetitiv kode)
+        <button onclick="changeRed()">Red</button>
+        <button onclick="changeBlue()">Blue</button>
+        <button onclick="changeGreen()">Green</button>
+    </div>
+
+    <div class="divMedVarogPara" id="divMedVarogPara">
+Denne Div'en endrer bakgrunnsfarge med hjelp av variabler og parametre
+<button onclick="changeBackgroundColor(this)">Change background color</button>
+    </div>
+</body>
+
+<script>
+    function changeRed(){
+        document.getElementById("divRepeterKode").style.backgroundColor = "red"
+        
+    }
+    function changeBlue(){
+        document.getElementById("divRepeterKode").style.backgroundColor = "blue"
+    }
+    function changeGreen(){
+        document.getElementById("divRepeterKode").style.backgroundColor = "green"
+    }
+
+
+
+    
+function changeBackgroundColor(){
+}
+
+
+
+</script>
+</html>
