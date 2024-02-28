@@ -18,37 +18,32 @@
     </style>
 </head>
 <body>
-    <div class="divRepeterKode" id="divRepeterKode">Denne Div'en endrer bakgrunnsfarge uten hjelp av variabler og parametre (repetitiv kode)
-        <button onclick="changeRed()">Red</button>
-        <button onclick="changeBlue()">Blue</button>
-        <button onclick="changeGreen()">Green</button>
+    <div class="divRepeterKode" id="divRepeterKode">Denne Div'en endrer bakgrunnsfarge uten hjelp av variabler og parametre (nesten repetitiv kode)
+        <button onclick="changeColor('red')">Red</button>
+        <button onclick="changeColor('blue')">Blue</button>
+        <button onclick="changeColor('green')">Green</button>
     </div>
 <!-- var=variabler, Para=parameter -->
     <div class="divMedVarogPara" id="divMedVarogPara">
 Denne Div'en endrer bakgrunnsfarge med hjelp av variabler og parametre
-<button onclick="changeBackgroundColor(this)">Change background color</button>
+<button onclick="changeBackgroundColor()">Change background color</button>
     </div>
 </body>
 
 <script>
+    let saveBackgroundColor = "";
     //funksjoner til repetiv kode
-    function changeRed(){
-        document.getElementById("divRepeterKode").style.backgroundColor = "red"
+    function changeColor(color){
+        saveBackgroundColor = color;
+        document.getElementById("divRepeterKode").style.backgroundColor = color;
         
     }
-    function changeBlue(){
-        document.getElementById("divRepeterKode").style.backgroundColor = "blue"
-    }
-    function changeGreen(){
-        document.getElementById("divRepeterKode").style.backgroundColor = "green"
-    }
-
-
-
+    
    // funksjoner til variabler og parametre div 
 function changeBackgroundColor(){
+document.getElementById("divMedVarogPara").style.backgroundColor = saveBackgroundColor;
+console.log(saveBackgroundColor)
 }
-
 
 
 </script>
