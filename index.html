@@ -32,14 +32,12 @@ Denne Div'en endrer bakgrunnsfarge med hjelp av variabler og parametre
 
 <script>
     let saveBackgroundColor = "";
-    //funksjoner til repetiv kode
     function changeColor(color){
         saveBackgroundColor = color;
         document.getElementById("divRepeterKode").style.backgroundColor = color;
         
     }
-    
-   // funksjoner til variabler og parametre div 
+
 function changeBackgroundColor(){
 document.getElementById("divMedVarogPara").style.backgroundColor = saveBackgroundColor;
 console.log(saveBackgroundColor)
