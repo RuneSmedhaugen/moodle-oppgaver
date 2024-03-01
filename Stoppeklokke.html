@@ -19,7 +19,7 @@
         let timer = 0;
         let count;
 
-        //funksjonen til timeren, dette gjør at den teller oppover. 
+        //funksjonen til timeren, dette gjør at man ser den teller oppover. fant hjelp med hvordan man setter det opp i en annen oppgave jeg så på github. 
         function stoppeklokkestart() {
             document.getElementById("app").innerHTML = timer;
             timer++;
@@ -27,6 +27,7 @@
         //funksjon til start knappen. Den gjør bare at count variablen starter å telle og sender den informasjonen til stoppeklokkestart funksjonen.
         function startTid() {
             count = setInterval(stoppeklokkestart, 1000)
+            console.log(timer)
         }
 
         // Denne funksjonen stopper telleren, men resetter den ikke.
@@ -34,7 +35,7 @@
             clearInterval(count)
         }
 
-        // Ble noen timer med googling og søking for å finne ut hvordan stopp funksjonen resetter timer variablen, det var jo egentlig ganske lett når jeg først fant ut av det.
+        // Ble noen timer med googling og søking for å finne ut hvordan reset funksjonen resetter timer variablen, det var jo egentlig ganske lett når jeg først fant ut av det.
         // det den gjør er å sette timer variablen tilbake til 0 og oppdaterer teksten i app div'en til den nye timer infoen.
         function resetTid() {
             clearInterval(count)
@@ -48,3 +49,8 @@
 </body>
 
 </html>
+
+
+
+
+

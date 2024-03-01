@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+ }
+        .lights {
+            display: flex;
+            border: 5px solid black;
+            justify-content: center;
+            margin: 5px;
+            border-radius: 50%;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lights" id="redLight"></div>
+    <div class="lights" id="yellowLight"></div>
+    <div class="lights" id="greenLight"></div>
+
+    <button onclick="turnRed('red' , 'white')">Red light</button>
+    <button onclick="turnRedandOrange('red' , 'yellow' , 'white')">Red/yellow light</button>
+    <button onclick="turnGreen('white' , 'green')">Green light</button>
+
+
+    <script>
+
+// aner ikke hvordan jeg skal forkorte denne koden og at det fortsatt kan bytte mellom de tre funksjonene
+
+        function turnRed(redColor, whiteColor) {
+            document.getElementById("redLight").style.backgroundColor = redColor;
+            document.getElementById("yellowLight").style.backgroundColor = whiteColor;
+            document.getElementById("greenLight").style.backgroundColor = whiteColor;
+
+        }
+// Det her tok lang tid og mye googling for å få til
+        function turnRedandOrange(redColor, yellowColor, whiteColor) {
+            document.getElementById("redLight").style.backgroundColor = redColor;
+            document.getElementById("yellowLight").style.backgroundColor = yellowColor;
+            document.getElementById("greenLight").style.backgroundColor = whiteColor;
+
+        }
+
+        function turnGreen(whiteColor, greenColor) {
+            document.getElementById("redLight").style.backgroundColor = whiteColor;
+            document.getElementById("yellowLight").style.backgroundColor = whiteColor;
+            document.getElementById("greenLight").style.backgroundColor = greenColor;
+        }
+
+
+    </script>
+</body>
+
+</html>
