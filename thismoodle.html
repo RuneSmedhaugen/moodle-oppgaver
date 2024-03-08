@@ -65,8 +65,8 @@ flex-direction: row;
 
 function tastatur(element){
     let letter = element.innerHTML;
-    bokstaver = letter;
-    document.getElementById("app").innerHTML += bokstaver;
+    bokstaver += letter;
+    document.getElementById("app").innerHTML = bokstaver;
 console.log(bokstaver)
 // console.log(letter)
 

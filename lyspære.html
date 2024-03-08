@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lyspære</title>
+    <style>
+.app{
+    cursor: pointer;
+    display: flex;
+    border: 5px solid black;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 50%;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+
+            
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="app" id="app" onclick="turnOnOrOff('gray' , 'yellow')"></div>
+    <div id="onOrOff"></div>
+
+
+    <script>
+let lightbulb = false;
+turnOnOrOff()
+
+function turnOnOrOff(grayColor, yellowColor){
+    lightbulb = !lightbulb
+    if(lightbulb == true){
+        document.getElementById('app').style.backgroundColor = grayColor;
+        document.getElementById('onOrOff').innerHTML = "lyset er <b>av</b>";
+    } 
+    else {
+        document.getElementById('app').style.backgroundColor = yellowColor;
+        document.getElementById('onOrOff').innerHTML = "lyset er <b>på</b>";
+        console.log(lightbulb)
+    }
+    }
+
+
+
+
+    </script>
+</body>
+</html>
