@@ -1,77 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="totalPoints">Poeng:</div>
-    <img src ="img/krokkodille.jgp.png"/>
+    <img src="img/krokkodille.jgp.png" />
     <!-- <a href="http://google.com" target="_new">Lenke</a> -->
     <div id="firstNum"></div>
     <input id="inputkroc" type="text"></input>
     <div id="secondNum"></div>
-    <button onclick="submit()">Submit</button>
+    <button id="submit" onclick="submit()">Submit</button>
     <button onclick="reset()">Reset</button>
-    <button onclick="start()">Start / get new numbers</button>
+    <button id="start" onclick="start()">Start / get new numbers</button>
+    <div id="winlose"></div>
+    <div id="rules">
+        <h1>krokkodillespill!</h1>
+        <li>Gjett hvilket tall som er <u><b>størst!</b></u></li>
+        <li>hvis det første tallet er størst, skriv ">" og trykk <b>submit</b></li>
+        <li>hvis det andre tallet er størst, skriv "<" og trykk <b>submit</b></li>
+        <li>hvis tallene er like, skriv "=" og trykk <b>submit</b></li>
+        <li>Få 10 poeng for å <b>vinne</b> spillet</li>
+        <li>Får du minuspoeng så <b>taper </b>du spillet!</li>
+        <li>Lykke til!</li>
+    </div>
 
     <script>
         let firstNum = 0;
         let secondNum = 0;
-        let points= 0;
+        let points = 0;
         let inputcroc = document.getElementById("inputkroc");
 
-function start(){
-    updateNumbers()
-}
-        function reset(){
+        function start() {
+            updateNumbers()
+        }
+        function reset() {
+            document.getElementById('winlose').innerHTML = "";
+            document.getElementById('submit').disabled = false;
+            document.getElementById('start').disabled = false;
             points = 0;
             updateNumbers();
-            
+
         }
 
-        function updateNumbers(){
+        function updateNumbers() {
             firstNum = getRandomNumber();
             secondNum = getRandomNumber();
             document.getElementById("firstNum").innerHTML = firstNum;
             document.getElementById("secondNum").innerHTML = secondNum;
-            document.getElementById("totalPoints").innerHTML =`Poeng:` + points;
+            document.getElementById("totalPoints").innerHTML = `Poeng:` + points;
         }
 
-        function getRandomNumber(){
+        function getRandomNumber() {
             return Math.round(Math.random() * 10);
         }
 
-        function submit(){
+        function submit() {
             let inputValue = inputcroc.value;
-            if (inputValue == ">"){
-                if (firstNum > secondNum){
+            if (inputValue == ">") {
+                if (firstNum > secondNum) {
                     points++;
                 } else points--;
             }
-            if (inputValue == "<"){
-                if (firstNum < secondNum){
+            if (inputValue == "<") {
+                if (firstNum < secondNum) {
                     points++;
                 } else points--;
             }
-            if (inputValue == "="){
-                if (firstNum == secondNum){
+            if (inputValue == "=") {
+                if (firstNum == secondNum) {
                     points++;
                 } else points--;
             }
             updateNumbers()
+            winOrLose()
+        }
+
+        function winOrLose() {
+            if (points < 0) {
+                document.getElementById('winlose').innerHTML = `<h2>You loose! Try again</h2>`;
+                document.getElementById('submit').disabled = true;
+                document.getElementById('start').disabled = true;
+            } else if (points > 9) {
+                document.getElementById('winlose').innerHTML = `<h2>Congratulations! You win!</h2>`;
+                document.getElementById('submit').disabled = true;
+                document.getElementById('start').disabled = true;
+            }
         }
     </script>
 </body>
 <style>
-    img{
-        height: 100px; 
+    img {
+        height: 100px;
         width: 100px;
     }
-    input{
+
+    input {
         width: 50px;
     }
 </style>
+
 </html>
