@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div id="app"></div>
+
+
+    <script>
+
+        //MODEL
+        let number = getNumber();
+        let mann = "'<b>adjektiv</b>'";
+        let bil = "'<b>substantiv</b>'";
+
+
+
+        //VIEW
+        getStory()
+
+        function getStory(text) {
+            let html = /*HTML*/`   
+        Det var en gang en <div id="male">${mann}</div> mann som skulle over en vei. 
+        Til høyre kom en <div id="car">${bil}</div> 
+        Etter den hadde passert gikk han over veien.
+        <p>
+        <button onclick="adjektiv('stor')">stor</button>
+        <button onclick="adjektiv('liten')">liten</button>
+        <button onclick="adjektiv('rød')">rød</button>
+        <button onclick="adjektiv('grønn')">grønn</button>
+        <p>
+        <button onclick="substantiv('bil')">bil</button>
+        <button onclick="substantiv('syklist')">syklist</button>
+        <button onclick="substantiv('lastebil')">lastebil</button>
+        <button onclick="substantiv('motorsykkel')">motorsykkel</button>`
+
+        document.getElementById("app").innerHTML = html;
+        }
+        
+
+        //CONTROLLER
+
+        function getNumber() {
+
+            return Math.floor(Math.random() * 1);
+        }
+
+        function adjektiv(text) {
+            mann = text;
+            document.getElementById("male").innerHTML = mann;
+
+        }
+
+        function substantiv(text) {
+            bil = text;
+            document.getElementById("car").innerHTML = bil;
+        }
+    </script>
+</body>
+
+</html>
