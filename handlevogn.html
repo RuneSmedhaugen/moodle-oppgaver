@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">handlevogn: </div>
+<button onclick="snus()">Legg snus i handlevogn</button>
+<button onclick="dopapir()">Legg dopapir i handlevogn</button>
+<button onclick="monsterEnergy()">Legg MonsterEnergy i handlevogn</button>
+<button onclick="grandiosa()">Legg Grandiosa i handlevogn</button>
+<p>
+
+<input id="input" type="text" onchange="input()"/>
+
+<script>
+
+let handlevogn = "";
+let items = ["snus","dopapir","MonsterEnergy","grandiosa"];
+
+
+function snus(){
+document.getElementById("app").innerHTML += `${items[0]} `
+}
+function dopapir(){
+document.getElementById("app").innerHTML += `${items[1]} `
+}
+function monsterEnergy(){
+document.getElementById("app").innerHTML += `${items[2]} `
+}
+function grandiosa(){
+document.getElementById("app").innerHTML += `${items[3]} `
+}
+
+function input(){
+    let newItem = document.getElementById("input").value;
+    items.push(newItem);
+    document.getElementById("app").innerHTML += `${newItem} `;
+console.log(items + `<-items - newItems ->` + newItem)
+}
+
+</script>
+
+
+</body>
+</html>

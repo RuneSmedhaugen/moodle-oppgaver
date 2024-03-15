@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button onclick="printNumbers()">2 gangen</button>
+    </div>
+
+
+    <script>
+
+function printNumbers(){
+    let stopValue = 20;
+for (let counter = 2; counter<=stopValue; counter = counter +2){
+document.getElementById("app").innerHTML += '<h3><li>' + counter + '</li></h3>'
+}
+}
+
+    </script>
+</body>
+</html>

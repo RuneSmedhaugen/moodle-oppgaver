@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="firstNum"></div>
+    <div id="secondNum"></div>
+    <div id="app"></div>
+    <button onclick="getNumbers()">Generer 2 tall</button>
+    <script>
+        let firstNumber = 0;
+        let secondNumber = 0;
+        let randomNumber = 0;
+
+        //Grunnen til at denne funksjonen har det samme både utenfor og inni "while" er for at man skal slippe å refreshe siden for hver gang man trykker på knappen
+        function getNumbers() {
+            firstNumber = mathRandom();
+            secondNumber = mathRandom();
+            document.getElementById("firstNum").innerHTML = firstNumber;
+            document.getElementById("secondNum").innerHTML = secondNumber;
+
+            console.log('firstNumber: ' + firstNumber)
+            console.log('secondNumber: ' + secondNumber)
+
+            while (firstNumber !== secondNumber) {
+                firstNumber = mathRandom();
+                secondNumber = mathRandom();
+                console.log('firstNumber: ' + firstNumber)
+                console.log('secondNumber: ' + secondNumber)
+                document.getElementById("firstNum").innerHTML = firstNumber;
+                document.getElementById("secondNum").innerHTML = secondNumber;
+                console.log('firstNumber: ' + firstNumber)
+                console.log('secondNumber: ' + secondNumber)
+
+                if (firstNumber == secondNumber) {
+                    document.getElementById("app").innerHTML = `<h2>Tallene er like! tallet er: ${randomNumber} </h2>`  +
+
+                        '<p>(husk å sjekke <u>console loggen</u> for å se hvilke tall kom før de ble like)';
+                }
+            }
+        }
+
+
+
+        function mathRandom() {
+            return randomNumber = Math.floor(Math.random() * 10);
+        }
+
+    </script>
+</body>
+
+</html>
