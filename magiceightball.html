@@ -34,7 +34,7 @@ body{
         <h1> MAGIC 8 BALL!</h1>
         <h2>Trykk på ballen for å få en spådom (HUSK LYD)</h2>
         <img src="img/eightball.PNG" onclick="getAdvice()" class="magicBall">
-        <div id="getAnswer"></div>
+        <div class="app" id="getAnswer"></div>
         
     </div>
     
@@ -70,34 +70,46 @@ let advice = [
         //VIEW
 
 function getAdvice(){
-    let number = getAdvice();
+    let number = getNumber();
+    let audio = new Audio();
     if (number == 0){
-        document.getElementById("getAnswer").innerHTML = `${advice[0]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[0]}`;
+        audio.src="/sounds/driteut.m4a";
     } else if (number == 1){
-        document.getElementById("getAnswer").innerHTML = `${advice[1]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[1]}`;
+        audio.src="sounds/gulsnø.m4a";
     }else if (number == 2){
-        document.getElementById("getAnswer").innerHTML = `${advice[2]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[2]}`;
+        audio.src="/sounds/pissmotvind.m4a";
     }else if (number == 3){
-        document.getElementById("getAnswer").innerHTML = `${advice[3]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[3]}`;
+        audio.src="/sounds/runealltidrett.m4a";
     }else if (number == 4){
-        document.getElementById("getAnswer").innerHTML = `${advice[4]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[4]}`;
+        audio.src="/sounds/slåhardt.m4a";
     }else if (number == 5){
-        document.getElementById("getAnswer").innerHTML = `${advice[5]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[5]}`;
+        audio.src="/sounds/æsjebæsj.m4a";
     }else if (number == 6){
-        document.getElementById("getAnswer").innerHTML = `${advice[6]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[6]}`;
+        audio.src="/sounds/værawesome.m4a";
     }else if (number == 7){
-        document.getElementById("getAnswer").innerHTML = `${advice[7]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[7]}`;
+        audio.src="/sounds/hvemfaen.m4a";
     }else if (number == 8){
-        document.getElementById("getAnswer").innerHTML = `${advice[8]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[8]}`;
+        audio.src="/sounds/øldigg.m4a";
     }else if (number == 9){
-        document.getElementById("getAnswer").innerHTML = `${advice[9]}`
+        document.getElementById("getAnswer").innerHTML = `${advice[9]}`;
+        audio.src="/sounds/sokkerovervurdert.m4a";
     };
+    audio.play();
 }
 
 
         //CONTROLLER
 
-        function getAdvice(){
+        function getNumber(){
             return Math.floor(Math.random() *10);
         }
 
