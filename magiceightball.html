@@ -6,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-body{
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
 
-}
+        }
 
-.app{
-    color: white;
-}
+        .app {
+            color: white;
+        }
 
-.magicBall{
-    cursor: pointer;
+        .magicBall {
+            cursor: pointer;
+            box-shadow: 1px 1px 200px rgb(211, 4, 183);
 
 
-}
-
+        }
     </style>
 </head>
 
@@ -32,85 +32,133 @@ body{
 
     <div class="app" id="app">
         <h1> MAGIC 8 BALL!</h1>
-        <h2>Trykk på ballen for å få en spådom (HUSK LYD)</h2>
+        <h2>Trykk på ballen for å få en spådom eller skriv et ja/nei spørsmål (HUSK LYD)</h2>
         <img src="img/eightball.PNG" onclick="getAdvice()" class="magicBall">
         <div class="app" id="getAnswer"></div>
-        
+        <input type="text" onchange="questions()" />
     </div>
-    
+
 
 
     <script>
 
         //MODEL
-let advice = [
-"Ikke drit deg ut",
+        let advice = [
+            "Ikke drit deg ut",
 
-"Ikke spis gul snø",
+            "Ikke spis gul snø",
 
-"Ikke piss i motvind",
+            "Ikke piss i motvind",
 
-"Rune har alltid rett",
+            "Rune har alltid rett",
 
-"Hvis noen slår deg, slå hardere tilbake",
+            "Hvis noen slår deg, slå hardere tilbake",
 
-"bæsj er æsj, æsjebæsj",
+            "bæsj er æsj, æsjebæsj",
 
-"slutt å vær en taper, vær awesome istedet",
+            "slutt å vær en taper, vær awesome istedet",
 
-"hvem faen er du?",
+            "hvem faen er du?",
 
-"Øl er digg",
+            "Øl er digg",
 
-"Sokker er overvurdert",
-];
+            "Sokker er overvurdert",
+        ];
 
+        let answers = [
+            "vet da faen jeg vel",
+            "Det er et veldig dumt spørsmål",
+            "Mjaaaaaa.... kanskje",
+            "NEI!",
+            "JA!",
+            "ikke godt å si, gitt",
+            "jeg nekter å svare",
+            "spør google, lol",
+            "hvis du ikke vet svaret, så er det ikke verdt å spørre...",
+            "Svaret på dette spørsmålet er det samme som svaret på meningen med livet",
+        ]
 
 
         //VIEW
 
-function getAdvice(){
-    let number = getNumber();
-    let audio = new Audio();
-    if (number == 0){
-        document.getElementById("getAnswer").innerHTML = `${advice[0]}`;
-        audio.src="/sounds/driteut.m4a";
-    } else if (number == 1){
-        document.getElementById("getAnswer").innerHTML = `${advice[1]}`;
-        audio.src="sounds/gulsnø.m4a";
-    }else if (number == 2){
-        document.getElementById("getAnswer").innerHTML = `${advice[2]}`;
-        audio.src="/sounds/pissmotvind.m4a";
-    }else if (number == 3){
-        document.getElementById("getAnswer").innerHTML = `${advice[3]}`;
-        audio.src="/sounds/runealltidrett.m4a";
-    }else if (number == 4){
-        document.getElementById("getAnswer").innerHTML = `${advice[4]}`;
-        audio.src="/sounds/slåhardt.m4a";
-    }else if (number == 5){
-        document.getElementById("getAnswer").innerHTML = `${advice[5]}`;
-        audio.src="/sounds/æsjebæsj.m4a";
-    }else if (number == 6){
-        document.getElementById("getAnswer").innerHTML = `${advice[6]}`;
-        audio.src="/sounds/værawesome.m4a";
-    }else if (number == 7){
-        document.getElementById("getAnswer").innerHTML = `${advice[7]}`;
-        audio.src="/sounds/hvemfaen.m4a";
-    }else if (number == 8){
-        document.getElementById("getAnswer").innerHTML = `${advice[8]}`;
-        audio.src="/sounds/øldigg.m4a";
-    }else if (number == 9){
-        document.getElementById("getAnswer").innerHTML = `${advice[9]}`;
-        audio.src="/sounds/sokkerovervurdert.m4a";
-    };
-    audio.play();
-}
+        function getAdvice() {
+            let number = getNumber();
+            let audio = new Audio();
+            if (number == 0) {
+                document.getElementById("getAnswer").innerHTML = `${advice[0]}`;
+                audio.src = "sounds/driteut.m4a"
+            } else if (number == 1) {
+                document.getElementById("getAnswer").innerHTML = `${advice[1]}`;
+                audio.src = "sounds/gulsnø.m4a";
+            } else if (number == 2) {
+                document.getElementById("getAnswer").innerHTML = `${advice[2]}`;
+                audio.src = "sounds/pissmotvind.m4a";
+            } else if (number == 3) {
+                document.getElementById("getAnswer").innerHTML = `${advice[3]}`;
+                audio.src = "sounds/runealltidrett.m4a";
+            } else if (number == 4) {
+                document.getElementById("getAnswer").innerHTML = `${advice[4]}`;
+                audio.src = "sounds/slåhardt.m4a";
+            } else if (number == 5) {
+                document.getElementById("getAnswer").innerHTML = `${advice[5]}`;
+                audio.src = "sounds/æsjebæsj.m4a";
+            } else if (number == 6) {
+                document.getElementById("getAnswer").innerHTML = `${advice[6]}`;
+                audio.src = "sounds/værawesome.m4a";
+            } else if (number == 7) {
+                document.getElementById("getAnswer").innerHTML = `${advice[7]}`;
+                audio.src = "sounds/hvemfaen.m4a";
+            } else if (number == 8) {
+                document.getElementById("getAnswer").innerHTML = `${advice[8]}`;
+                audio.src = "sounds/øldigg.m4a";
+            } else if (number == 9) {
+                document.getElementById("getAnswer").innerHTML = `${advice[9]}`;
+                audio.src = "sounds/sokkerovervurdert.m4a";
+            };
+            audio.play();
+        }
 
+        function questions() {
+            let num = getNumber();
+            let audio = new Audio();
+            if (num == 0) {
+                document.getElementById("getAnswer").innerHTML = `${answers[0]}`;
+                audio.src = "sounds/vetdafaen.m4a";
+            } else if (num == 1) {
+                document.getElementById("getAnswer").innerHTML = `${answers[1]}`;
+                audio.src = "sounds/dumtspørsmål.m4a";
+            } else if (num == 2) {
+                document.getElementById("getAnswer").innerHTML = `${answers[2]}`;
+                audio.src = "sounds/mjakanskje.m4a";
+            } else if (num == 3) {
+                document.getElementById("getAnswer").innerHTML = `${answers[3]}`;
+                audio.src = "sounds/nei.m4a";
+            } else if (num == 4) {
+                document.getElementById("getAnswer").innerHTML = `${answers[4]}`;
+                audio.src = "sounds/ja.m4a";
+            } else if (num == 5) {
+                document.getElementById("getAnswer").innerHTML = `${answers[5]}`;
+                audi.src = "sounds/ikkegodtåsi.m4a";
+            } else if (num == 6) {
+                document.getElementById("getAnswer").innerHTML = `${answers[6]}`;
+                audio.src="sounds/nekteråsvare.m4a";
+            } else if (num == 7) {
+                document.getElementById("getAnswer").innerHTML = `${answers[7]}`;
+                audio.src="sounds/spørgooglelol.m4a";
+            } else if (num == 8) {
+                document.getElementById("getAnswer").innerHTML = `${answers[8]}`;
+                audio.src="sounds/vetikkesvarikkespør.m4a";
+            } else if (num == 9) {
+                document.getElementById("getAnswer").innerHTML = `${answers[9]}`;
+                audio.src="sounds/meningmedlivet.m4a";
+            };
+            audio.play();
+        }
 
         //CONTROLLER
 
-        function getNumber(){
-            return Math.floor(Math.random() *10);
+        function getNumber() {
+            return Math.floor(Math.random() * 10);
         }
 
 
