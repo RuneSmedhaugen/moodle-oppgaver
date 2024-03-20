@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <input type="text" onchange="emailcheck()" id="emailInput" placeholder="Enter your email"/>
+
+    <script>
+
+
+function emailcheck(){
+    let email = document.getElementById("emailInput").value;
+        space = " ";
+        let at = "@";
+        let dot = ".";
+
+if (email.includes(space)){
+    document.getElementById("app").innerHTML = 'Text cannot include spaces.';
+}else if (!email.includes(dot)){
+    document.getElementById("app").innerHTML = 'You are missing a "."';
+}else if (!email.includes(at)){
+    document.getElementById("app").innerHTML = 'You are missing a "@"';
+}else if (!email.includes(at,dot)){
+    document.getElementById("app").innerHTML = 'Text does not include @ or .';
+}else if (email.includes(at,dot)){
+    document.getElementById("app").innerHTML = 'This is an email';
+};
+
+}
+    </script>
+</body>
+
+</html>
