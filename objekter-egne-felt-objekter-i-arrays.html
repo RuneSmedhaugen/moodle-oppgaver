@@ -20,13 +20,13 @@
         }
 
         th {
-            background-color: darkblue;
-            border: 1px solid darkblue;
+            background-color: rgb(1, 82, 25);
+            border: 1px solid rgb(0, 197, 43);
             color: white;
         }
 
         tr:nth-child(even) {
-            background: antiquewhite;
+            background: rgb(0, 112, 146);
         }
     </style>
 </head>
@@ -36,10 +36,11 @@
     <p>
         <input id="taskDescription" type="text" placeholder="Oppgave" />
         <input id="taskPerson" type="text" placeholder="Hvem skal gjøre oppgaven" />
-        <input id="taskDueDate" type="date" placeholder="frist"
+       frist: <input id="taskDueDate" type="date" placeholder="frist"
             value="${task.dueDate ? new Date(task.dueDate).toISOString().substr(0,10) : ''}" />
         <button onclick="addTask()">Legg til oppgave</button>
     </p>
+    når du krysser av en oppgave gjort, så vil dagens dato komme under "gjort dato" 🦖
     <script>
 
         // Model
@@ -69,16 +70,16 @@
         var tasksTable = document.getElementById('tasksTable');
         show();
 
-        function show() {
+        function show() { /*HTML*/
             let html = `
                         <tr>
                             <th>Oppgave</th>
                             <th>Gjort</th>
                             <th>Gjort Dato</th>
-                            <th></th>
+                            
                             <th>Person</th>
                             <th>Frist</th>
-                            
+                            <th>Slett/rediger</th>
                         </tr>`;
             for (let i = 0; i < tasks.length; i++) {
                 html += createHtmlRow(i);
@@ -94,24 +95,24 @@
                             <td>${task.description}</td>
                             <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                             <td>${task.completionDate ? task.completionDate.split('-').reverse().join('-') : ''}</td>
+                            
+                            <td> ${task.person ? task.person : ''}</td>
+                            <td> ${task.dueDate ? task.dueDate.split('-').reverse().join('-') : ''}</td>
                             <td>
                                 <button onclick="deleteTask(${i})">Slett</button>
                                 <button onclick="editTask(${i})">Rediger</button>
                             </td>
-                            
-                            <td> ${task.person ? task.person : ''}</td>
-                            <td> ${task.dueDate ? task.dueDate.split('-').reverse().join('-') : ''}</td>
                         </tr>
                         `;
             return `<tr>
                             <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
                             <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                             <td>${task.completionDate ? task.completionDate : ''}</td>
+                            <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
+                            <td><input id="editDueDate${i}" type="date" value="${task.dueDate ? task.dueDate.split('-').reverse().join('-') : ''}"/></td>
                             <td>
                                 <button onclick="updateTask(${i})">Lagre</button>
                             </td>
-                            <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
-                            <td><input id="editDueDate${i}" type="date" value="${task.dueDate ? task.dueDate.split('-').reverse().join('-') : ''}"/></td>
                         </tr>
                         `;
         }
